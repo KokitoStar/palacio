@@ -31,13 +31,12 @@ body { font-family: 'Barlow', sans-serif; background: var(--crema); color: var(-
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: rgba(13,13,13,0.97); backdrop-filter: blur(16px);
-  height: 70px; /* Altura ajustada para el logo más grande */
+  height: 70px;
   display: flex; align-items: center;
-  justify-content: flex-end; /* Alineación ajustada a la derecha al quitar el brand */ padding: 0 5%;
+  justify-content: flex-end; padding: 0 5%;
   border-bottom: 2px solid var(--rojo);
 }
 .nav-brand { display: flex; align-items: center; }
-/* .nav-brand img { height: 50px; object-fit: contain; } */ /* Logo eliminado del nav */
 .nav-links { display: flex; gap: 24px; list-style: none; }
 .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.73rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; transition: color 0.2s; }
 .nav-links a:hover { color: var(--rojo-light); }
@@ -52,15 +51,12 @@ nav {
 #hero { min-height: 100vh; padding-top: 70px; background: var(--negro); display: grid; grid-template-columns: 55% 45%; align-items: stretch; position: relative; overflow: hidden; }
 .hero-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(200,16,46,0.03) 60px, rgba(200,16,46,0.03) 61px); }
 .hero-left { padding: 80px 6% 80px 7%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
-
-/* Nuevo estilo para el logo grande en el Hero */
 .hero-logo-large {
   display: block;
-  width: clamp(200px, 25vw, 450px); /* Makes it really big and responsive */ height: auto;
+  width: clamp(200px, 25vw, 450px); height: auto;
   object-fit: contain;
-  margin-bottom: 30px; /* Space above the 'Partido Liberal' badge */ opacity: 0.9;
+  margin-bottom: 30px; opacity: 0.9;
 }
-
 .hero-partido { display: inline-flex; align-items: center; gap: 10px; background: var(--rojo); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; margin-bottom: 28px; width: fit-content; }
 .hero-partido::before { content: "●"; font-size: 0.6rem; }
 .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 900; color: #fff; line-height: 1.0; margin-bottom: 14px; }
@@ -121,7 +117,6 @@ section { padding: 90px 7%; }
 .estudio-nivel { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--rojo); margin-bottom: 6px; }
 .estudio-titulo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 6px; }
 .estudio-inst { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
-.estudio-wide { grid-column: span 2; background: rgba(200,16,46,0.06); border-color: rgba(200,16,46,0.2); }
 
 /* LÍNEA DE TIEMPO */
 #trayectoria { background: var(--crema); }
@@ -249,7 +244,6 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
 .footer-logos img { height: 40px; object-fit: contain; opacity: 0.8; }
 .footer-div { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
 .footer-text { color: rgba(255,255,255,0.3); font-size: 0.78rem; line-height: 1.6; max-width: 340px; margin-top: 14px; }
-.footer-text span { color: var(--rojo); } /* Text modification allowed here? Guess not from user input. Leaving text as is. */
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; padding-top: 4px; }
 .footer-links a { color: rgba(255,255,255,0.3); text-decoration: none; font-size: 0.73rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
 .footer-links a:hover { color: var(--rojo-light); }
@@ -271,12 +265,11 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
   .hero-right { height: 340px; }
   .hero-right::before { display: none; }
   .hero-left { padding: 50px 6% 36px; }
-  .hero-logo-large { width: clamp(150px, 40vw, 300px); } /* Adjusted large logo for mobile */
+  .hero-logo-large { width: clamp(150px, 40vw, 300px); }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-stat { border-bottom: 1px solid rgba(255,255,255,0.1); }
   .quien-grid, .votos-wrap, .foco-grid, .filo-grid, .redes-grid { grid-template-columns: 1fr; gap: 30px; }
   .estudios-grid { grid-template-columns: 1fr 1fr; }
-  .estudio-wide { grid-column: span 2; }
   .timeline::before { left: 22px; }
   .tl-item { grid-template-columns: 40px 1fr; }
   .tl-left { display: none; }
@@ -291,7 +284,6 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
 @media (max-width: 560px) {
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .estudios-grid { grid-template-columns: 1fr; }
-  .estudio-wide { grid-column: span 1; }
   .filo-valores { grid-template-columns: 1fr; }
 }
 </style>
@@ -300,7 +292,7 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
 
 <nav>
   <div class="nav-brand">
-    </div>
+  </div>
   <ul class="nav-links">
     <li><a href="#quien">Perfil</a></li>
     <li><a href="#trayectoria">Trayectoria</a></li>
@@ -329,7 +321,8 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
     <img src="logo_palacio.png" alt="Logo Juan Carlos Palacio" class="hero-logo-large" onerror="this.style.display='none'">
 
     <div class="hero-partido">Partido Liberal Colombiano</div>
-        <div class="hero-cargo">Presidente · Asamblea Departamental<br>de Antioquia · 2026</div>
+    <h1 class="hero-name">Juan Carlos<br><em>Palacio</em><br>Fernández</h1>
+    <div class="hero-cargo">Presidente · Asamblea Departamental<br>de Antioquia · 2026</div>
     <p class="hero-desc">Del barrio Gualandayes de Envigado al máximo cargo legislativo de Antioquia. Un hombre hecho a pulso, que hoy representa a más de 125 municipios.</p>
     <blockquote class="hero-frase">"Insistir, persistir y nunca desistir."</blockquote>
     <div class="hero-btns">
@@ -358,9 +351,9 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
   <p class="sec-subtitle reveal">Un hijo de la clase trabajadora antioqueña que aprendió el valor del trabajo antes que el de la política.</p>
   <div class="quien-grid">
     <div class="quien-bio-cards reveal">
-      <div class="bio-card"><div class="bio-card-label">Origen</div><div class="bio-card-val">Envigado, Antioquia — "El mejor lugar para vivir"</div></div>
+      <div class="bio-card"><div class="bio-card-label">Origen</div><div class="bio-card-val">Barrio San Vicente</div></div>
       <div class="bio-card"><div class="bio-card-label">Padres</div><div class="bio-card-val">José Alfredo Palacio Palacio &amp; Luz Marina Fernández Tamayo</div></div>
-      <div class="bio-card"><div class="bio-card-label">Familia propia</div><div class="bio-card-val">Esposa: Azucena Castañeda · Hijos: Edwin y Samuel</div></div>
+      <div class="bio-card"><div class="bio-card-label">Familia propia</div><div class="bio-card-val">Esposa: Deiby Betancurt Cardona · Hijos: Edwin y Samuel</div></div>
       <div class="bio-card"><div class="bio-card-label">Partido político</div><div class="bio-card-val">Partido Liberal Colombiano</div></div>
       <div class="bio-card"><div class="bio-card-label">Cargo actual</div><div class="bio-card-val">Presidente de la Asamblea Departamental de Antioquia — Vigencia 2026</div></div>
       <div class="bio-card"><div class="bio-card-label">Antes de la política</div><div class="bio-card-val">17½ años en AP3 Carnes — de domiciliario a coordinador de operaciones</div></div>
@@ -416,11 +409,18 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
       <div class="estudio-titulo">Especialista en Alta Gerencia</div>
       <div class="estudio-inst">Universidad de Medellín</div>
     </div>
-    <div class="estudio-card estudio-wide" style="background:rgba(200,16,46,0.05); border-color:rgba(200,16,46,0.2);">
+    <div class="estudio-card" style="border-color:var(--oro); background:rgba(201,168,76,0.07);">
+      <div class="estudio-num">5</div>
+      <div class="estudio-icon">🏙️</div>
+      <div class="estudio-nivel">Maestría — Posgrado</div>
+      <div class="estudio-titulo">Magíster en Desarrollo Urbano Rural</div>
+      <div class="estudio-inst">TDA (2026)</div>
+    </div>
+    <div class="estudio-card" style="background:rgba(200,16,46,0.05); border-color:rgba(200,16,46,0.2);">
       <div class="estudio-icon">💡</div>
       <div class="estudio-nivel">¿Por qué importa esta combinación?</div>
-      <div class="estudio-titulo">Abogado + Especialista en Alta Gerencia</div>
-      <div class="estudio-inst" style="color:rgba(255,255,255,0.55); margin-top:8px; font-size:0.88rem; line-height:1.65;">Su formación jurídica le permite <strong style="color:#fff;">blindar las ordenanzas</strong> contra errores legales. Su especialización gerencial lo impulsa a exigir <strong style="color:#fff;">métricas de desempeño y resultados reales</strong> a cada peso público. Dos habilidades que la mayoría de legisladores tienen por separado — él las tiene integradas.</div>
+      <div class="estudio-titulo">Leyes + Gerencia + Territorio</div>
+      <div class="estudio-inst" style="color:rgba(255,255,255,0.55); margin-top:8px; font-size:0.88rem; line-height:1.65;">Formación jurídica para <strong style="color:#fff;">blindar ordenanzas</strong>, visión gerencial para exigir <strong style="color:#fff;">resultados</strong> y maestría para un <strong style="color:#fff;">desarrollo territorial</strong> sostenible.</div>
     </div>
   </div>
 </section>
@@ -714,7 +714,7 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
       <div class="sec-eyebrow" style="color:var(--rojo); margin-bottom:14px;">Cómo trabaja FOCO</div>
       <div class="foco-metodo">
         <div class="foco-paso"><div class="foco-paso-num">1</div><div><div class="foco-paso-title">Escucha activa y mapeo</div><div class="foco-paso-desc">Primero escuchan a la comunidad en su propio barrio. Sin imponer soluciones desde una oficina — con los pies en la tierra y los oídos abiertos.</div></div></div>
-        <div class="foco-paso"><div class="foco-paso-num">2</div><div><div class="foco-paso-title">Convocatoria multiactor</div><div class="foco-paso-desc">Conectan voluntarios, familias, institutions y allies del sector privado que normalmente no interactúan entre sí.</div></div></div>
+        <div class="foco-paso"><div class="foco-paso-num">2</div><div><div class="foco-paso-title">Convocatoria multiactor</div><div class="foco-paso-desc">Conectan voluntarios, familias, instituciones y aliados del sector privado que normalmente no interactúan entre sí.</div></div></div>
         <div class="foco-paso"><div class="foco-paso-num">3</div><div><div class="foco-paso-title">Acción con metas claras</div><div class="foco-paso-desc">Cada actividad tiene un plan definido, responsables asignados y evaluación de resultados. Corazón más disciplina.</div></div></div>
         <div class="foco-paso"><div class="foco-paso-num">4</div><div><div class="foco-paso-title">Seguimiento y vínculo</div><div class="foco-paso-desc">Regresan a los barrios para verificar el impacto. La ayuda no es un evento: es un proceso continuo de cuidado y confianza.</div></div></div>
       </div>
@@ -735,7 +735,7 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
     <div class="reveal">
       <div class="filo-eyebrow">Su filosofía</div>
       <blockquote class="filo-frase">
-        "Insistir,<br>persistir<br>and never desistir."
+        "Insistir,<br>persistir<br>y nunca desistir."
         <cite>— Juan Carlos Palacio Fernández<br>Presidente · Asamblea Departamental de Antioquia · 2026</cite>
       </blockquote>
     </div>
@@ -748,7 +748,7 @@ footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid 
       <div class="filo-valor">
         <span class="filo-valor-icon">📊</span>
         <div class="filo-valor-title">Resultados medibles</div>
-        <div class="filo-valor-desc">Cada peso público debe tener retorno real. No basta la intention — se exigen métricas de impacto concreto.</div>
+        <div class="filo-valor-desc">Cada peso público debe tener retorno real. No basta la intención — se exigen métricas de impacto concreto.</div>
       </div>
       <div class="filo-valor">
         <span class="filo-valor-icon">🏘️</span>
