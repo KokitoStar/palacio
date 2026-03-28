@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Carlos Palacio Fernández — Diputado Antioquia 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rojo: #C8102E;
+  --rojo-dark: #8B0B1F;
+  --rojo-light: #E8294A;
+  --oro: #C9A84C;
+  --crema: #FAF8F4;
+  --gris-bg: #F4F4F2;
+  --gris-line: #E2E0DC;
+  --gris-texto: #666;
+  --negro: #0D0D0D;
+  --blanco: #FFFFFF;
+  --texto: #181818;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--crema); color: var(--texto); overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--negro); }
+::-webkit-scrollbar-thumb { background: var(--rojo); border-radius: 4px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(13,13,13,0.97); backdrop-filter: blur(16px);
+  height: 70px; /* Altura ajustada para el logo más grande */
+  display: flex; align-items: center;
+  justify-content: flex-end; /* Alineación ajustada a la derecha al quitar el brand */ padding: 0 5%;
+  border-bottom: 2px solid var(--rojo);
+}
+.nav-brand { display: flex; align-items: center; }
+/* .nav-brand img { height: 50px; object-fit: contain; } */ /* Logo eliminado del nav */
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.73rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--rojo-light); }
+.nav-cta { background: var(--rojo) !important; color: #fff !important; padding: 6px 16px; border-radius: 3px; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 26px; height: 2px; background: #fff; border-radius: 2px; display: block; }
+.mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; z-index: 999; background: rgba(13,13,13,0.99); padding: 24px 5%; flex-direction: column; gap: 4px; }
+.mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: block; }
+.mobile-menu.open { display: flex; }
+
+/* HERO */
+#hero { min-height: 100vh; padding-top: 70px; background: var(--negro); display: grid; grid-template-columns: 55% 45%; align-items: stretch; position: relative; overflow: hidden; }
+.hero-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(200,16,46,0.03) 60px, rgba(200,16,46,0.03) 61px); }
+.hero-left { padding: 80px 6% 80px 7%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+
+/* Nuevo estilo para el logo grande en el Hero */
+.hero-logo-large {
+  display: block;
+  width: clamp(200px, 25vw, 450px); /* Makes it really big and responsive */ height: auto;
+  object-fit: contain;
+  margin-bottom: 30px; /* Space above the 'Partido Liberal' badge */ opacity: 0.9;
+}
+
+.hero-partido { display: inline-flex; align-items: center; gap: 10px; background: var(--rojo); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; margin-bottom: 28px; width: fit-content; }
+.hero-partido::before { content: "●"; font-size: 0.6rem; }
+.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 900; color: #fff; line-height: 1.0; margin-bottom: 14px; }
+.hero-name em { color: var(--rojo); font-style: normal; }
+.hero-cargo { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 700; color: var(--oro); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; line-height: 1.3; }
+.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 480px; margin-bottom: 40px; font-weight: 300; }
+.hero-frase { border-left: 3px solid var(--rojo); padding-left: 18px; font-style: italic; color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 40px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-rojo { background: var(--rojo); color: #fff; padding: 13px 28px; border-radius: 3px; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; display: inline-block; }
+.btn-rojo:hover { background: var(--rojo-light); transform: translateY(-2px); }
+.btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); padding: 13px 28px; border-radius: 3px; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.2s; display: inline-block; }
+.btn-outline:hover { border-color: var(--rojo); color: var(--rojo-light); transform: translateY(-2px); }
+.hero-right { position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; }
+.hero-right::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; background: linear-gradient(to right, var(--negro), transparent); z-index: 3; }
+.hero-img-wrap { width: 100%; height: 100%; position: relative; background: linear-gradient(160deg, #1a0308 0%, #2d0712 50%, #0d0d0d 100%); }
+.hero-img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(to top, var(--negro), transparent); z-index: 2; }
+.hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0.88; display: block; }
+.hero-accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--rojo); z-index: 4; }
+
+/* STATS */
+.hero-stats { background: var(--rojo); display: grid; grid-template-columns: repeat(4, 1fr); }
+.hero-stat { padding: 28px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.15); }
+.hero-stat:last-child { border-right: none; }
+.hero-stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.1rem; font-weight: 900; color: #fff; display: block; line-height: 1; }
+.hero-stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block; }
+
+/* SECCIONES */
+section { padding: 90px 7%; }
+.sec-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.sec-eyebrow::after { content: ''; flex: 0 0 40px; height: 2px; background: var(--rojo); }
+.sec-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.9rem); font-weight: 900; line-height: 1.15; margin-bottom: 18px; color: var(--negro); }
+.sec-title em { color: var(--rojo); font-style: normal; }
+.sec-subtitle { font-size: 1.05rem; color: var(--gris-texto); line-height: 1.7; max-width: 620px; }
+
+/* QUIÉN ES */
+#quien { background: var(--blanco); }
+.quien-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 50px; }
+.quien-bio-cards { display: grid; gap: 14px; }
+.bio-card { background: var(--crema); border-left: 4px solid var(--rojo); padding: 18px 22px; border-radius: 0 6px 6px 0; }
+.bio-card-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--rojo); margin-bottom: 4px; }
+.bio-card-val { font-size: 0.97rem; font-weight: 600; color: var(--negro); line-height: 1.4; }
+.quien-derecho { display: flex; flex-direction: column; gap: 20px; }
+.quien-highlight { background: var(--rojo); color: #fff; padding: 30px 28px; border-radius: 6px; }
+.quien-highlight-num { font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; font-weight: 900; line-height: 1; display: block; }
+.quien-highlight-text { font-size: 0.95rem; opacity: 0.9; line-height: 1.5; margin-top: 6px; }
+.quien-frase { background: var(--gris-bg); padding: 24px 26px; border-radius: 6px; border-left: 4px solid var(--oro); font-style: italic; font-size: 1.05rem; color: var(--negro); line-height: 1.6; }
+.quien-frase cite { display: block; font-style: normal; font-size: 0.78rem; font-weight: 700; color: var(--rojo); margin-top: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ESTUDIOS */
+#estudios { background: var(--negro); }
+#estudios .sec-title { color: #fff; }
+#estudios .sec-subtitle { color: rgba(255,255,255,0.55); }
+.estudios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px; }
+.estudio-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 28px 22px; position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+.estudio-card:hover { transform: translateY(-4px); border-color: var(--rojo); }
+.estudio-num { font-family: 'Barlow Condensed', sans-serif; font-size: 4rem; font-weight: 900; color: rgba(200,16,46,0.1); position: absolute; right: 14px; top: 6px; line-height: 1; }
+.estudio-icon { width: 44px; height: 44px; background: var(--rojo); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 1.3rem; }
+.estudio-nivel { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--rojo); margin-bottom: 6px; }
+.estudio-titulo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+.estudio-inst { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+.estudio-wide { grid-column: span 2; background: rgba(200,16,46,0.06); border-color: rgba(200,16,46,0.2); }
+
+/* LÍNEA DE TIEMPO */
+#trayectoria { background: var(--crema); }
+.timeline { position: relative; margin-top: 60px; }
+.timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--gris-line); transform: translateX(-50%); }
+.tl-item { display: grid; grid-template-columns: 1fr 60px 1fr; align-items: start; margin-bottom: 36px; }
+.tl-left { padding-right: 36px; text-align: right; }
+.tl-right { padding-left: 36px; }
+.tl-center { display: flex; align-items: flex-start; justify-content: center; padding-top: 16px; position: relative; z-index: 2; }
+.tl-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--rojo); border: 3px solid var(--crema); box-shadow: 0 0 0 2px var(--rojo); }
+.tl-dot.oro { background: var(--oro); box-shadow: 0 0 0 2px var(--oro); }
+.tl-dot.grande { width: 26px; height: 26px; box-shadow: 0 0 0 4px var(--rojo), 0 0 20px rgba(200,16,46,0.3); }
+.tl-year { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; color: var(--rojo); line-height: 1; padding-top: 10px; }
+.tl-card { background: var(--blanco); border-radius: 8px; padding: 20px 22px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); border-top: 3px solid var(--rojo); }
+.tl-card.oro-card { border-top-color: var(--oro); }
+.tl-card.gray-card { border-top-color: #999; }
+.tl-tag { font-size: 0.64rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--rojo); margin-bottom: 5px; }
+.tl-tag.oro { color: var(--oro); }
+.tl-tag.gray { color: #999; }
+.tl-heading { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--negro); line-height: 1.2; margin-bottom: 6px; }
+.tl-body { font-size: 0.87rem; color: var(--gris-texto); line-height: 1.55; }
+.tl-voto { display: inline-block; background: var(--rojo); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 800; padding: 3px 12px; border-radius: 3px; margin-top: 8px; }
+.tl-voto.gray { background: #777; }
+
+/* VOTOS */
+#votos { background: var(--negro); }
+#votos .sec-title { color: #fff; }
+#votos .sec-subtitle { color: rgba(255,255,255,0.5); }
+.votos-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; margin-top: 50px; }
+.votos-chart { display: flex; flex-direction: column; gap: 20px; }
+.voto-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
+.voto-year-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.95rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; }
+.voto-corp { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-left: 8px; }
+.voto-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; color: #fff; }
+.voto-bar-bg { background: rgba(255,255,255,0.06); border-radius: 2px; height: 10px; overflow: hidden; }
+.voto-bar { height: 100%; border-radius: 2px; width: 0; transition: width 1.2s cubic-bezier(0.16,1,0.3,1); }
+.voto-bar.electo { background: linear-gradient(90deg, var(--rojo), var(--rojo-light)); }
+.voto-bar.no-electo { background: rgba(200,16,46,0.3); }
+.voto-status { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; color: rgba(255,255,255,0.3); }
+.voto-status.si { color: var(--rojo-light); }
+.votos-derecho { display: flex; flex-direction: column; gap: 18px; }
+.votos-highlight-box { background: var(--rojo); padding: 30px 26px; border-radius: 8px; }
+.votos-big-num { font-family: 'Barlow Condensed', sans-serif; font-size: 4.5rem; font-weight: 900; color: #fff; line-height: 1; display: block; }
+.votos-big-label { color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-top: 6px; line-height: 1.5; }
+.votos-dato { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.07); }
+.votos-dato-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 900; color: var(--rojo-light); display: block; line-height: 1; }
+.votos-dato-label { color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-top: 4px; }
+
+/* LOGROS */
+#logros { background: var(--blanco); }
+.logros-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 40px; }
+.logro-card { background: var(--crema); border-radius: 10px; padding: 26px 24px; border: 1px solid var(--gris-line); position: relative; overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; }
+.logro-card:hover { box-shadow: 0 8px 30px rgba(200,16,46,0.12); transform: translateY(-3px); }
+.logro-icon-wrap { width: 50px; height: 50px; border-radius: 10px; background: var(--rojo); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 14px; }
+.logro-num { position: absolute; right: 16px; top: 12px; font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; font-weight: 900; color: rgba(200,16,46,0.06); line-height: 1; }
+.logro-tag { font-size: 0.64rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--rojo); margin-bottom: 5px; }
+.logro-titulo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--negro); margin-bottom: 8px; line-height: 1.2; }
+.logro-desc { font-size: 0.88rem; color: var(--gris-texto); line-height: 1.6; }
+.logro-ord { display: inline-block; margin-top: 10px; background: rgba(200,16,46,0.08); color: var(--rojo); font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* FOCO */
+#foco { background: linear-gradient(160deg, #0D0D0D 0%, #1A0308 60%, #0D0D0D 100%); position: relative; overflow: hidden; }
+#foco::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 50%, rgba(200,16,46,0.12) 0%, transparent 65%); }
+#foco .sec-title { color: #fff; }
+#foco .sec-subtitle { color: rgba(255,255,255,0.5); }
+.foco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 50px; }
+.foco-logo-wrap { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 22px; }
+.foco-logo-wrap img { max-height: 90px; max-width: 200px; object-fit: contain; }
+.foco-lema { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--oro); text-align: center; margin-top: 14px; line-height: 1.4; }
+.foco-ejes { display: flex; flex-direction: column; gap: 10px; }
+.foco-eje { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.07); transition: border-color 0.2s; }
+.foco-eje:hover { border-color: rgba(200,16,46,0.35); }
+.foco-eje-icon { width: 38px; height: 38px; border-radius: 8px; background: rgba(200,16,46,0.15); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; border: 1px solid rgba(200,16,46,0.25); }
+.foco-eje-title { font-weight: 700; font-size: 0.88rem; color: #fff; margin-bottom: 2px; }
+.foco-eje-desc { font-size: 0.78rem; color: rgba(255,255,255,0.42); line-height: 1.4; }
+.foco-metodo { display: flex; flex-direction: column; }
+.foco-paso { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.foco-paso:last-child { border-bottom: none; }
+.foco-paso-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 900; color: var(--rojo); line-height: 1; flex-shrink: 0; width: 32px; }
+.foco-paso-title { font-weight: 700; font-size: 0.97rem; color: #fff; margin-bottom: 3px; }
+.foco-paso-desc { font-size: 0.83rem; color: rgba(255,255,255,0.44); line-height: 1.55; }
+.foco-cob { margin-top: 28px; background: rgba(200,16,46,0.1); border: 1px solid rgba(200,16,46,0.2); border-radius: 10px; padding: 22px 24px; }
+.foco-cob-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 800; color: var(--rojo); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+.foco-cob p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+.foco-btns { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+
+/* FILOSOFÍA */
+#filosofia { background: var(--rojo); padding: 80px 7%; }
+.filo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.filo-eyebrow { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.filo-eyebrow::after { content: ''; flex: 0 0 40px; height: 1px; background: rgba(255,255,255,0.2); }
+.filo-frase { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); color: #fff; line-height: 1.15; margin-bottom: 0; }
+.filo-frase cite { display: block; font-family: 'Barlow', sans-serif; font-style: normal; font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.55); margin-top: 18px; letter-spacing: 0.04em; }
+.filo-valores { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.filo-valor { background: rgba(0,0,0,0.15); border-radius: 8px; padding: 18px 18px; border: 1px solid rgba(255,255,255,0.1); }
+.filo-valor-icon { font-size: 1.3rem; margin-bottom: 8px; display: block; }
+.filo-valor-title { font-weight: 700; font-size: 0.92rem; color: #fff; margin-bottom: 4px; }
+.filo-valor-desc { font-size: 0.78rem; color: rgba(255,255,255,0.62); line-height: 1.5; }
+
+/* REDES */
+#redes { background: var(--crema); }
+.redes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
+.red-grupo-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.red-grupo-logo { height: 42px; object-fit: contain; }
+.red-grupo-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--negro); text-transform: uppercase; letter-spacing: 0.05em; }
+.red-grupo-sub { font-weight: 400; font-size: 0.82rem; text-transform: none; color: var(--gris-texto); display: block; }
+.red-links { display: flex; flex-direction: column; gap: 10px; }
+.red-link { display: flex; align-items: center; gap: 14px; background: var(--blanco); border-radius: 8px; padding: 13px 16px; text-decoration: none; border: 1px solid var(--gris-line); transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
+.red-link:hover { box-shadow: 0 4px 20px rgba(200,16,46,0.1); border-color: var(--rojo); transform: translateX(4px); }
+.red-icon { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: #fff; }
+.ig { background: linear-gradient(135deg, #E1306C, #833AB4); }
+.fb { background: #1877F2; }
+.tw { background: #111; }
+.web-i { background: var(--rojo); }
+.red-plataforma { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gris-texto); }
+.red-handle { font-weight: 700; font-size: 0.92rem; color: var(--negro); }
+.volun-box { background: var(--blanco); border-radius: 8px; padding: 20px 22px; border: 1px solid var(--gris-line); margin-top: 10px; }
+.volun-label { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--rojo); margin-bottom: 6px; }
+.volun-text { font-size: 0.86rem; color: var(--gris-texto); line-height: 1.6; }
+
+/* FOOTER */
+footer { background: var(--negro); padding: 50px 7% 28px; border-top: 2px solid var(--rojo); }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
+.footer-logos { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.footer-logos img { height: 40px; object-fit: contain; opacity: 0.8; }
+.footer-div { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
+.footer-text { color: rgba(255,255,255,0.3); font-size: 0.78rem; line-height: 1.6; max-width: 340px; margin-top: 14px; }
+.footer-text span { color: var(--rojo); } /* Text modification allowed here? Guess not from user input. Leaving text as is. */
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; padding-top: 4px; }
+.footer-links a { color: rgba(255,255,255,0.3); text-decoration: none; font-size: 0.73rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--rojo-light); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 20px; flex-wrap: wrap; gap: 10px; }
+.footer-copy { color: rgba(255,255,255,0.2); font-size: 0.71rem; }
+.footer-partido { display: flex; align-items: center; gap: 8px; background: rgba(200,16,46,0.1); border: 1px solid rgba(200,16,46,0.2); padding: 5px 14px; border-radius: 30px; }
+.footer-partido-dot { width: 8px; height: 8px; background: var(--rojo); border-radius: 50%; }
+.footer-partido-text { font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  #hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 340px; }
+  .hero-right::before { display: none; }
+  .hero-left { padding: 50px 6% 36px; }
+  .hero-logo-large { width: clamp(150px, 40vw, 300px); } /* Adjusted large logo for mobile */
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-stat { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .quien-grid, .votos-wrap, .foco-grid, .filo-grid, .redes-grid { grid-template-columns: 1fr; gap: 30px; }
+  .estudios-grid { grid-template-columns: 1fr 1fr; }
+  .estudio-wide { grid-column: span 2; }
+  .timeline::before { left: 22px; }
+  .tl-item { grid-template-columns: 40px 1fr; }
+  .tl-left { display: none; }
+  .tl-center { padding-top: 14px; justify-content: flex-start; }
+  .tl-right { padding-left: 18px; }
+  .logros-grid { grid-template-columns: 1fr; }
+  .filo-valores { grid-template-columns: 1fr 1fr; }
+  .footer-top { flex-direction: column; }
+  section { padding: 60px 5%; }
+  #filosofia { padding: 60px 5%; }
+}
+@media (max-width: 560px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .estudios-grid { grid-template-columns: 1fr; }
+  .estudio-wide { grid-column: span 1; }
+  .filo-valores { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    </div>
+  <ul class="nav-links">
+    <li><a href="#quien">Perfil</a></li>
+    <li><a href="#trayectoria">Trayectoria</a></li>
+    <li><a href="#votos">Elecciones</a></li>
+    <li><a href="#logros">Gestión</a></li>
+    <li><a href="#foco">Fundación FOCO</a></li>
+    <li><a href="#redes" class="nav-cta">Contacto</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#quien" onclick="closeMenu()">Perfil</a>
+  <a href="#trayectoria" onclick="closeMenu()">Trayectoria</a>
+  <a href="#votos" onclick="closeMenu()">Elecciones</a>
+  <a href="#logros" onclick="closeMenu()">Gestión</a>
+  <a href="#foco" onclick="closeMenu()">Fundación FOCO</a>
+  <a href="#redes" onclick="closeMenu()">Contacto</a>
+</div>
+
+<div id="hero" style="padding:0; display:grid; grid-template-columns:55% 45%; min-height:100vh; padding-top:70px; background:#0D0D0D; position:relative; overflow:hidden;">
+  <div class="hero-lines"></div>
+  <div class="hero-left">
+    
+    <img src="logo_palacio.png" alt="Logo Juan Carlos Palacio" class="hero-logo-large" onerror="this.style.display='none'">
+
+    <div class="hero-partido">Partido Liberal Colombiano</div>
+        <div class="hero-cargo">Presidente · Asamblea Departamental<br>de Antioquia · 2026</div>
+    <p class="hero-desc">Del barrio Gualandayes de Envigado al máximo cargo legislativo de Antioquia. Un hombre hecho a pulso, que hoy representa a más de 125 municipios.</p>
+    <blockquote class="hero-frase">"Insistir, persistir y nunca desistir."</blockquote>
+    <div class="hero-btns">
+      <a href="#trayectoria" class="btn-rojo">Ver trayectoria</a>
+      <a href="#logros" class="btn-outline">Su gestión</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-accent-bar"></div>
+    <div class="hero-img-wrap">
+      <img src="palacio.png" alt="Juan Carlos Palacio Fernández">
+    </div>
+  </div>
+</div>
+
+<div class="hero-stats">
+  <div class="hero-stat"><span class="hero-stat-num">38.574</span><span class="hero-stat-label">Votos en 2023</span></div>
+  <div class="hero-stat"><span class="hero-stat-num">125</span><span class="hero-stat-label">Municipios representa</span></div>
+  <div class="hero-stat"><span class="hero-stat-num">17½</span><span class="hero-stat-label">Años en sector privado</span></div>
+  <div class="hero-stat"><span class="hero-stat-num">#1</span><span class="hero-stat-label">Mejor diputado Antioquia</span></div>
+</div>
+
+<section id="quien">
+  <div class="sec-eyebrow reveal">Conócelo</div>
+  <h2 class="sec-title reveal">El hombre detrás<br>del <em>diputado</em></h2>
+  <p class="sec-subtitle reveal">Un hijo de la clase trabajadora antioqueña que aprendió el valor del trabajo antes que el de la política.</p>
+  <div class="quien-grid">
+    <div class="quien-bio-cards reveal">
+      <div class="bio-card"><div class="bio-card-label">Origen</div><div class="bio-card-val">Envigado, Antioquia — "El mejor lugar para vivir"</div></div>
+      <div class="bio-card"><div class="bio-card-label">Padres</div><div class="bio-card-val">José Alfredo Palacio Palacio &amp; Luz Marina Fernández Tamayo</div></div>
+      <div class="bio-card"><div class="bio-card-label">Familia propia</div><div class="bio-card-val">Esposa: Azucena Castañeda · Hijos: Edwin y Samuel</div></div>
+      <div class="bio-card"><div class="bio-card-label">Partido político</div><div class="bio-card-val">Partido Liberal Colombiano</div></div>
+      <div class="bio-card"><div class="bio-card-label">Cargo actual</div><div class="bio-card-val">Presidente de la Asamblea Departamental de Antioquia — Vigencia 2026</div></div>
+      <div class="bio-card"><div class="bio-card-label">Antes de la política</div><div class="bio-card-val">17½ años en AP3 Carnes — de domiciliario a coordinador de operaciones</div></div>
+      <div class="bio-card"><div class="bio-card-label">Liderazgo comunitario</div><div class="bio-card-val">Vicepresidente JAC Barrio Gualandayes, Envigado (2008–2012)</div></div>
+    </div>
+    <div class="quien-derecho reveal">
+      <div class="quien-highlight">
+        <span class="quien-highlight-num">17½ años</span>
+        <p class="quien-highlight-text">trabajando en el sector privado antes de llegar a la política. Empezó entregando domicilios y terminó coordinando un equipo completo. Eso es lo que lo diferencia.</p>
+      </div>
+      <blockquote class="quien-frase">
+        "Querer es poder. Yo no llegué aquí gracias a ningún apellido — llegué gracias al trabajo y a la gente."
+        <cite>— Juan Carlos Palacio Fernández</cite>
+      </blockquote>
+      <div class="bio-card" style="background:#fff; border-color:var(--oro);">
+        <div class="bio-card-label" style="color:var(--oro);">Lema de vida</div>
+        <div class="bio-card-val">Insistir · Persistir · Nunca desistir</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="estudios">
+  <div class="sec-eyebrow reveal">Formación académica</div>
+  <h2 class="sec-title reveal">Preparado para <em>legislar</em><br>con rigor técnico</h2>
+  <p class="sec-subtitle reveal">Abogado más Especialista en Alta Gerencia. Una combinación poco común que define su forma de hacer política: con ley y con números.</p>
+  <div class="estudios-grid reveal">
+    <div class="estudio-card">
+      <div class="estudio-num">1</div>
+      <div class="estudio-icon">🏫</div>
+      <div class="estudio-nivel">Primaria</div>
+      <div class="estudio-titulo">I.E. San Vicente de Paul</div>
+      <div class="estudio-inst">Envigado, Antioquia</div>
+    </div>
+    <div class="estudio-card">
+      <div class="estudio-num">2</div>
+      <div class="estudio-icon">🎓</div>
+      <div class="estudio-nivel">Bachillerato</div>
+      <div class="estudio-titulo">Bachiller en Promoción Social</div>
+      <div class="estudio-inst">INEM José Félix de Restrepo</div>
+    </div>
+    <div class="estudio-card">
+      <div class="estudio-num">3</div>
+      <div class="estudio-icon">⚖️</div>
+      <div class="estudio-nivel">Pregrado universitario</div>
+      <div class="estudio-titulo">Abogado</div>
+      <div class="estudio-inst">Institución Universitaria de Envigado (IUE)</div>
+    </div>
+    <div class="estudio-card" style="border-color:var(--rojo); background:rgba(200,16,46,0.07);">
+      <div class="estudio-num">4</div>
+      <div class="estudio-icon">📊</div>
+      <div class="estudio-nivel">Especialización — Posgrado</div>
+      <div class="estudio-titulo">Especialista en Alta Gerencia</div>
+      <div class="estudio-inst">Universidad de Medellín</div>
+    </div>
+    <div class="estudio-card estudio-wide" style="background:rgba(200,16,46,0.05); border-color:rgba(200,16,46,0.2);">
+      <div class="estudio-icon">💡</div>
+      <div class="estudio-nivel">¿Por qué importa esta combinación?</div>
+      <div class="estudio-titulo">Abogado + Especialista en Alta Gerencia</div>
+      <div class="estudio-inst" style="color:rgba(255,255,255,0.55); margin-top:8px; font-size:0.88rem; line-height:1.65;">Su formación jurídica le permite <strong style="color:#fff;">blindar las ordenanzas</strong> contra errores legales. Su especialización gerencial lo impulsa a exigir <strong style="color:#fff;">métricas de desempeño y resultados reales</strong> a cada peso público. Dos habilidades que la mayoría de legisladores tienen por separado — él las tiene integradas.</div>
+    </div>
+  </div>
+</section>
+
+<section id="trayectoria">
+  <div class="sec-eyebrow reveal">Paso a paso</div>
+  <h2 class="sec-title reveal">De domiciliario a <em>Presidente</em><br>de la Asamblea</h2>
+  <p class="sec-subtitle reveal">Una trayectoria construida ladrillo a ladrillo, sin herencias políticas ni padrinos de élite. Solo trabajo, constancia y territorio.</p>
+
+  <div class="timeline">
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <div class="tl-card gray-card">
+          <div class="tl-tag gray">Primer intento electoral</div>
+          <div class="tl-heading">Concejo de Envigado — Partido Liberal</div>
+          <div class="tl-body">Su debut en política formal. Sin apellidos ni contactos de élite, obtiene 623 votos. No alcanza la curul, pero inicia su camino electoral.</div>
+          <span class="tl-voto gray">623 votos · No electo</span>
+        </div>
+      </div>
+      <div class="tl-center"><div class="tl-dot" style="background:#888; box-shadow:0 0 0 2px #888;"></div></div>
+      <div class="tl-right"><div class="tl-year" style="color:#888;">2007</div></div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left"><div class="tl-year">2008</div></div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <div class="tl-tag">Liderazgo barrial</div>
+          <div class="tl-heading">Vicepresidente JAC — Barrio Gualandayes, Envigado</div>
+          <div class="tl-body">Inicia su vida pública desde la base: la Junta de Acción Comunal. 4 años aprendiendo a escuchar a la comunidad, gestionar problemas del día a día y negociar con el Estado. El mejor laboratorio político que existe.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <div class="tl-card gray-card">
+          <div class="tl-tag gray">Segundo intento electoral</div>
+          <div class="tl-heading">Concejo de Envigado — Lista cívica Por Ti Envigado</div>
+          <div class="tl-body">Continúa su camino en las urnas. Aumenta su votación a 1.047 votos. Aún no alcanza la curul, pero sienta una base electoral sólida para el futuro.</div>
+          <span class="tl-voto gray">1.047 votos · No electo</span>
+        </div>
+      </div>
+      <div class="tl-center"><div class="tl-dot" style="background:#888; box-shadow:0 0 0 2px #888;"></div></div>
+      <div class="tl-right"><div class="tl-year" style="color:#888;">2011</div></div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left"><div class="tl-year">2012</div></div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <div class="tl-tag">Formación institucional</div>
+          <div class="tl-heading">Asesor Jurídico — Asamblea Departamental de Antioquia</div>
+          <div class="tl-body">En lugar de desmoralizarse por la derrota, entra a trabajar como asesor jurídico en la misma Asamblea que hoy preside. Aprende desde adentro cómo funciona el poder legislativo departamental.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <div class="tl-card">
+          <div class="tl-tag">Hacienda pública</div>
+          <div class="tl-heading">Abogado de Cobro Coactivo — Secretaría de Movilidad de Envigado</div>
+          <div class="tl-body">Trabaja en una de las áreas más técnicas del Estado: recuperar cartera pública. Aprende cómo respira financieramente un municipio, cuáles son sus debilidades fiscales y cómo funciona el cobro imperativo del Estado.</div>
+        </div>
+      </div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-right"><div class="tl-year">2014</div></div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left"><div class="tl-year">2015</div></div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <div class="tl-tag">Gestión metropolitana</div>
+          <div class="tl-heading">Promotor de Gobierno Local — Alcaldía de Medellín</div>
+          <div class="tl-body">Amplía su visión más allá de Envigado. Renuncia a mediados de año para cumplir los tiempos legales y lanzarse de nuevo a las urnas, ahora con un perfil formidablemente más robusto.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <div class="tl-card oro-card">
+          <div class="tl-tag oro">🏆 ¡Primera elección!</div>
+          <div class="tl-heading">Concejo de Envigado — Partido Renovación</div>
+          <div class="tl-body">Con 4 años de experiencia pública acumulada, gana su primera curul. El crecimiento vs. 2011 es del <strong>+77%</strong> en votos obtenidos.</div>
+          <span class="tl-voto" style="background:var(--oro); color:#fff;">1.862 votos · ✓ Electo</span>
+        </div>
+      </div>
+      <div class="tl-center"><div class="tl-dot oro"></div></div>
+      <div class="tl-right"><div class="tl-year" style="color:var(--oro);">2015</div></div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left"><div class="tl-year">2016<br>—<br>2019</div></div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <div class="tl-tag">Concejal en propiedad</div>
+          <div class="tl-heading">Gestión legislativa en el Concejo de Envigado</div>
+          <div class="tl-body">4 años legislando a nivel municipal. Defiende movilidad social, infraestructura local y el eslogan que siempre repite: "Envigado, el mejor lugar para vivir". Construye la plataforma para su siguiente salto.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <div class="tl-card" style="border-top-color:var(--rojo); background:rgba(200,16,46,0.04);">
+          <div class="tl-tag">🚀 Salto histórico</div>
+          <div class="tl-heading">Asamblea Departamental de Antioquia — Partido Liberal</div>
+          <div class="tl-body">Multiplica sus votos por <strong>más de 22 veces</strong> en un solo paso. Se consolida como diputado departamental y líder del liberalismo en la duma de 26 diputados.</div>
+          <span class="tl-voto">41.773 votos · ✓ Electo</span>
+        </div>
+      </div>
+      <div class="tl-center"><div class="tl-dot grande"></div></div>
+      <div class="tl-right"><div class="tl-year">2019</div></div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left"><div class="tl-year">2023</div></div>
+      <div class="tl-center"><div class="tl-dot grande"></div></div>
+      <div class="tl-right">
+        <div class="tl-card" style="border-top-color:var(--rojo); background:rgba(200,16,46,0.04);">
+          <div class="tl-tag">Reelección</div>
+          <div class="tl-heading">Reelecto — Asamblea de Antioquia — Partido Liberal</div>
+          <div class="tl-body">En una elección altamente fragmentada, mantiene más de 38 mil votos y se posiciona como el candidato natural a presidir la corporación.</div>
+          <span class="tl-voto">38.574 votos · ✓ Reelecto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <div class="tl-card" style="border-top-color:var(--oro); background:rgba(201,168,76,0.07);">
+          <div class="tl-tag oro">🏛️ La cima institucional</div>
+          <div class="tl-heading">Presidente de la Asamblea Departamental de Antioquia</div>
+          <div class="tl-body">El mismo recinto donde trabajó como asesor jurídico en 2012 lo elige ahora como su máxima autoridad. El "tecnócrata con botas en el barro" llega a la cima del poder legislativo antioqueño.</div>
+        </div>
+      </div>
+      <div class="tl-center"><div class="tl-dot oro grande" style="box-shadow:0 0 0 4px var(--oro), 0 0 20px rgba(201,168,76,0.4);"></div></div>
+      <div class="tl-right"><div class="tl-year" style="color:var(--oro);">2026</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="votos">
+  <div class="sec-eyebrow reveal">Respaldo ciudadano</div>
+  <h2 class="sec-title reveal">Sus números<br>hablan <em>solos</em></h2>
+  <p class="sec-subtitle reveal">De 623 votos en su primer intento a más de 41.000. Un crecimiento sin precedentes en el sur del Valle de Aburrá.</p>
+  <div class="votos-wrap">
+    <div class="votos-chart reveal">
+      <div class="voto-row">
+        <div class="voto-meta">
+          <div><span class="voto-year-label">2007</span><span class="voto-corp">Concejo de Envigado</span></div>
+          <span class="voto-num">623</span>
+        </div>
+        <div class="voto-bar-bg"><div class="voto-bar no-electo" data-width="1.5"></div></div>
+        <div class="voto-status">No electo · Partido Liberal</div>
+      </div>
+      <div class="voto-row">
+        <div class="voto-meta">
+          <div><span class="voto-year-label">2011</span><span class="voto-corp">Concejo de Envigado</span></div>
+          <span class="voto-num">1.047</span>
+        </div>
+        <div class="voto-bar-bg"><div class="voto-bar no-electo" data-width="2.5"></div></div>
+        <div class="voto-status">No electo · Lista cívica Por Ti Envigado</div>
+      </div>
+      <div class="voto-row">
+        <div class="voto-meta">
+          <div><span class="voto-year-label">2015</span><span class="voto-corp">Concejo de Envigado</span></div>
+          <span class="voto-num">1.862</span>
+        </div>
+        <div class="voto-bar-bg"><div class="voto-bar electo" data-width="4.5"></div></div>
+        <div class="voto-status si">✓ Electo · Creció +77% vs 2011</div>
+      </div>
+      <div class="voto-row">
+        <div class="voto-meta">
+          <div><span class="voto-year-label">2019</span><span class="voto-corp">Asamblea Departamental</span></div>
+          <span class="voto-num">41.773</span>
+        </div>
+        <div class="voto-bar-bg"><div class="voto-bar electo" data-width="100"></div></div>
+        <div class="voto-status si">✓ Electo · Multiplicó por ×22 sus votos anteriores</div>
+      </div>
+      <div class="voto-row">
+        <div class="voto-meta">
+          <div><span class="voto-year-label">2023</span><span class="voto-corp">Asamblea Departamental</span></div>
+          <span class="voto-num">38.574</span>
+        </div>
+        <div class="voto-bar-bg"><div class="voto-bar electo" data-width="92.3"></div></div>
+        <div class="voto-status si">✓ Reelecto · Líder indiscutible de la corporación</div>
+      </div>
+    </div>
+    <div class="votos-derecho reveal">
+      <div class="votos-highlight-box">
+        <span class="votos-big-num">×22</span>
+        <p class="votos-big-label">veces más votos obtuvo en 2019 comparado con 2015. El salto electoral más dramático de su carrera y uno de los más importantes en la historia política reciente del sur de Antioquia.</p>
+      </div>
+      <div class="votos-dato">
+        <span class="votos-dato-num">+77%</span>
+        <div class="votos-dato-label">de crecimiento entre 2011 y su primera elección en 2015</div>
+      </div>
+      <div class="votos-dato">
+        <span class="votos-dato-num">38.574</span>
+        <div class="votos-dato-label">ciudadanos le renovaron la confianza en 2023, en una elección con alta fragmentación de votos en todo el departamento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="logros">
+  <div class="sec-eyebrow reveal">Lo que ha hecho</div>
+  <h2 class="sec-title reveal">Su gestión en la <em>Asamblea</em><br>en hechos concretos</h2>
+  <p class="sec-subtitle reveal">No basta con llegar al poder. Aquí están las ordenanzas y proyectos con su firma que impactan la vida de todos los antioqueños.</p>
+  <div class="logros-grid reveal">
+    <div class="logro-card">
+      <div class="logro-num">01</div>
+      <div class="logro-icon-wrap">💰</div>
+      <div class="logro-tag">Finanzas del departamento</div>
+      <div class="logro-titulo">Actualización del Estatuto de Rentas de Antioquia</div>
+      <div class="logro-desc">Fue designado diputado ponente del Proyecto de Ordenanza No. 52 para actualizar la "carta de navegación financiera" de Antioquia: el documento que define cómo el departamento recauda sus impuestos. Un trabajo técnico de altísima complejidad que le fue confiado por su perfil único de abogado y gerente público.</div>
+      <span class="logro-ord">Ordenanza No. 52</span>
+    </div>
+    <div class="logro-card">
+      <div class="logro-num">02</div>
+      <div class="logro-icon-wrap">🛡️</div>
+      <div class="logro-tag">Seguridad territorial</div>
+      <div class="logro-titulo">Creación del FONSET — Fondo de Seguridad de Antioquia</div>
+      <div class="logro-desc">Ponente coordinador del Proyecto N.° 43 que creó el FONSET. Y como presidente, sancionó la Ordenanza 01 de 2026 que garantiza el flujo de caja del fondo con descuentos por pago oportuno. Creó el fondo y le aseguró los recursos al mismo tiempo: sofisticación legislativa pura.</div>
+      <span class="logro-ord">Ord. N.° 43 · Ord. 01/2026</span>
+    </div>
+    <div class="logro-card">
+      <div class="logro-num">03</div>
+      <div class="logro-icon-wrap">🚂</div>
+      <div class="logro-tag">Infraestructura estratégica</div>
+      <div class="logro-titulo">Ferrocarril de Antioquia — Control y transparencia</div>
+      <div class="logro-desc">Impulsor del Sistema Férreo Multipropósito. Como presidente sancionó la Ordenanza 03 de 2026, que obliga al Gobierno Departamental a presentar informes cada 6 meses sobre avances reales del proyecto. Sin informes periódicos, no hay cheque en blanco: él lo blindó con rendición de cuentas.</div>
+      <span class="logro-ord">Ordenanza 03/2026</span>
+    </div>
+    <div class="logro-card">
+      <div class="logro-num">04</div>
+      <div class="logro-icon-wrap">🏭</div>
+      <div class="logro-tag">Modernización del Estado</div>
+      <div class="logro-titulo">Transformación de la Fábrica de Licores de Antioquia</div>
+      <div class="logro-desc">Bajo su presidencia se debatió el Proyecto de Ordenanza No. 4 de 2026 para modernizar la FLA incorporando perfiles especializados del sector privado — sin privatizarla. Proteger lo público y hacerlo más eficiente al mismo tiempo: eso es gobernar bien.</div>
+      <span class="logro-ord">Ord. No. 4/2026</span>
+    </div>
+    <div class="logro-card">
+      <div class="logro-num">05</div>
+      <div class="logro-icon-wrap">🎓</div>
+      <div class="logro-tag">Educación pública</div>
+      <div class="logro-titulo">Financiamiento del Politécnico y la IU Digital de Antioquia</div>
+      <div class="logro-desc">Ha blindado el financiamiento del Politécnico Colombiano Jaime Isaza Cadavid y la Institución Universitaria Digital de Antioquia. Garantizar la educación pública superior de calidad, porque él mismo fue fruto de esas instituciones públicas.</div>
+    </div>
+    <div class="logro-card">
+      <div class="logro-num">06</div>
+      <div class="logro-icon-wrap">🏆</div>
+      <div class="logro-tag">Reconocimiento ciudadano</div>
+      <div class="logro-titulo">El mejor diputado de Antioquia</div>
+      <div class="logro-desc">Una prestigiosa firma encuestadora lo posicionó como el mejor diputado del departamento de Antioquia. El galardón valida su fórmula: rigor técnico en las comisiones más presencia constante en el territorio. No uno sin el otro.</div>
+    </div>
+  </div>
+</section>
+
+<section id="foco">
+  <div class="sec-eyebrow reveal">Más allá de la política</div>
+  <h2 class="sec-title reveal">Fundación <em>FOCO</em><br>Opción Comunitaria</h2>
+  <p class="sec-subtitle reveal">Porque el servicio no termina cuando se cierra la sesión. Juan Carlos y Deiby Betancourt crearon una fundación que trabaja donde el Estado no siempre llega.</p>
+
+  <div class="foco-grid">
+    <div class="reveal">
+      <div class="foco-logo-wrap">
+        <img src="logo_foco.png" alt="Logo Fundación FOCO" onerror="this.innerHTML='<div style=\'font-family:Barlow Condensed,sans-serif;font-size:2rem;font-weight:900;color:var(--rojo);\'>FOCO</div>'">
+        <div class="foco-lema">"Amor en acción.<br>Cuando hay FOCO, hay futuro."</div>
+      </div>
+      <div class="foco-ejes">
+        <div class="foco-eje"><div class="foco-eje-icon">👴</div><div><div class="foco-eje-title">Adulto Mayor</div><div class="foco-eje-desc">Acompañamiento, bienestar y dignificación. Combaten el aislamiento que deteriora la salud en la vejez.</div></div></div>
+        <div class="foco-eje"><div class="foco-eje-icon">🏘️</div><div><div class="foco-eje-title">Brigadas Barriales</div><div class="foco-eje-desc">Presencia activa en los barrios de Envigado con servicios básicos, recreación y escucha directa.</div></div></div>
+        <div class="foco-eje"><div class="foco-eje-icon">📦</div><div><div class="foco-eje-title">Ayuda Humanitaria</div><div class="foco-eje-desc">Recolectan y distribuyen alimentos, cobijas y enseres para familias en crisis en Envigado y el Suroeste antioqueño.</div></div></div>
+        <div class="foco-eje"><div class="foco-eje-icon">🙋</div><div><div class="foco-eje-title">Voluntariado Juvenil</div><div class="foco-eje-desc">Los jóvenes son el motor del cambio. FOCO forma líderes con sentido de comunidad y habilidades para la vida.</div></div></div>
+        <div class="foco-eje"><div class="foco-eje-icon">🐾</div><div><div class="foco-eje-title">Protección Animal</div><div class="foco-eje-desc">Alimentación, rescate y sensibilización para construir un municipio más compasivo con toda forma de vida.</div></div></div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="sec-eyebrow" style="color:var(--rojo); margin-bottom:14px;">Cómo trabaja FOCO</div>
+      <div class="foco-metodo">
+        <div class="foco-paso"><div class="foco-paso-num">1</div><div><div class="foco-paso-title">Escucha activa y mapeo</div><div class="foco-paso-desc">Primero escuchan a la comunidad en su propio barrio. Sin imponer soluciones desde una oficina — con los pies en la tierra y los oídos abiertos.</div></div></div>
+        <div class="foco-paso"><div class="foco-paso-num">2</div><div><div class="foco-paso-title">Convocatoria multiactor</div><div class="foco-paso-desc">Conectan voluntarios, familias, institutions y allies del sector privado que normalmente no interactúan entre sí.</div></div></div>
+        <div class="foco-paso"><div class="foco-paso-num">3</div><div><div class="foco-paso-title">Acción con metas claras</div><div class="foco-paso-desc">Cada actividad tiene un plan definido, responsables asignados y evaluación de resultados. Corazón más disciplina.</div></div></div>
+        <div class="foco-paso"><div class="foco-paso-num">4</div><div><div class="foco-paso-title">Seguimiento y vínculo</div><div class="foco-paso-desc">Regresan a los barrios para verificar el impacto. La ayuda no es un evento: es un proceso continuo de cuidado y confianza.</div></div></div>
+      </div>
+      <div class="foco-cob">
+        <div class="foco-cob-title">📍 Cobertura geográfica</div>
+        <p>Envigado y municipios del Suroeste antioqueño. La fundación entiende que el bienestar de Envigado no puede ser sostenible si sus regiones vecinas sufren carencias extremas.</p>
+      </div>
+      <div class="foco-btns">
+        <a href="https://www.instagram.com/foco.fundacion" target="_blank" class="btn-rojo" style="font-size:0.78rem; padding:10px 18px;">📷 @foco.fundacion</a>
+        <a href="https://www.facebook.com/FundacionFoco" target="_blank" class="btn-outline" style="font-size:0.78rem; padding:10px 18px; color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.2);">Facebook · FundacionFoco</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="filosofia">
+  <div class="filo-grid">
+    <div class="reveal">
+      <div class="filo-eyebrow">Su filosofía</div>
+      <blockquote class="filo-frase">
+        "Insistir,<br>persistir<br>and never desistir."
+        <cite>— Juan Carlos Palacio Fernández<br>Presidente · Asamblea Departamental de Antioquia · 2026</cite>
+      </blockquote>
+    </div>
+    <div class="filo-valores reveal">
+      <div class="filo-valor">
+        <span class="filo-valor-icon">🤝</span>
+        <div class="filo-valor-title">Facilitador, no obstruccionista</div>
+        <div class="filo-valor-desc">Los diputados deben ser puentes entre los 125 municipios y la Gobernación, no frenos al progreso regional.</div>
+      </div>
+      <div class="filo-valor">
+        <span class="filo-valor-icon">📊</span>
+        <div class="filo-valor-title">Resultados medibles</div>
+        <div class="filo-valor-desc">Cada peso público debe tener retorno real. No basta la intention — se exigen métricas de impacto concreto.</div>
+      </div>
+      <div class="filo-valor">
+        <span class="filo-valor-icon">🏘️</span>
+        <div class="filo-valor-title">Presencia territorial</div>
+        <div class="filo-valor-desc">Acompaña a los alcaldes en sus proyectos ante la Gobernación. La política se ejerce en el territorio, no solo en el recinto.</div>
+      </div>
+      <div class="filo-valor">
+        <span class="filo-valor-icon">❤️</span>
+        <div class="filo-valor-title">Inteligencia emocional</div>
+        <div class="filo-valor-desc">Su mayor felicidad es resolver problemas reales. El cargo es un medio de servicio, nunca un fin en sí mismo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="redes">
+  <div class="sec-eyebrow reveal">Conecta con él</div>
+  <h2 class="sec-title reveal">Redes y <em>contacto</em></h2>
+  <p class="sec-subtitle reveal">Síguelo en sus plataformas oficiales y conoce de primera mano su trabajo diario en la Asamblea y en el territorio.</p>
+  <div class="redes-grid">
+
+    <div class="reveal">
+      <div class="red-grupo-header">
+        <img src="logo_palacio.png" alt="Logo Palacio" class="red-grupo-logo" onerror="this.style.display='none'">
+        <div class="red-grupo-title">Juan Carlos Palacio<span class="red-grupo-sub">Diputado — Partido Liberal Colombiano</span></div>
+      </div>
+      <div class="red-links">
+        <a href="https://www.juancarlospalacio.com" target="_blank" class="red-link">
+          <div class="red-icon web-i">🌐</div>
+          <div><div class="red-plataforma">Sitio Web Oficial</div><div class="red-handle">www.juancarlospalacio.com</div></div>
+        </a>
+        <a href="https://www.instagram.com/juancarlospalaciof" target="_blank" class="red-link">
+          <div class="red-icon ig">📷</div>
+          <div><div class="red-plataforma">Instagram</div><div class="red-handle">@juancarlospalaciof</div></div>
+        </a>
+        <a href="https://www.facebook.com/JuanCarlosPalacio" target="_blank" class="red-link">
+          <div class="red-icon fb">👥</div>
+          <div><div class="red-plataforma">Facebook</div><div class="red-handle">Juan Carlos Palacio</div></div>
+        </a>
+        <a href="https://x.com/JuanCPalacioF" target="_blank" class="red-link">
+          <div class="red-icon tw">✕</div>
+          <div><div class="red-plataforma">X (Twitter)</div><div class="red-handle">@JuanCPalacioF</div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="red-grupo-header">
+        <img src="logo_foco.png" alt="Logo FOCO" class="red-grupo-logo" onerror="this.style.display='none'">
+        <div class="red-grupo-title">Fundación FOCO<span class="red-grupo-sub">Opción Comunitaria — Envigado, Antioquia</span></div>
+      </div>
+      <div class="red-links">
+        <a href="https://www.instagram.com/foco.fundacion" target="_blank" class="red-link">
+          <div class="red-icon ig">📷</div>
+          <div><div class="red-plataforma">Instagram</div><div class="red-handle">@foco.fundacion</div></div>
+        </a>
+        <a href="https://www.facebook.com/FundacionFoco" target="_blank" class="red-link">
+          <div class="red-icon fb">👥</div>
+          <div><div class="red-plataforma">Facebook</div><div class="red-handle">FundacionFoco</div></div>
+        </a>
+      </div>
+      <div class="volun-box" style="margin-top:12px;">
+        <div class="volun-label">¿Quieres ser voluntario de FOCO?</div>
+        <p class="volun-text">FOCO tiene convocatorias permanentes de voluntariado juvenil. Escríbeles directamente por sus redes para unirte a las brigadas barriales, el acompañamiento a adultos mayores o la protección animal.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logos">
+        <img src="logo_palacio.png" alt="Logo Palacio" onerror="this.style.display='none'">
+        <div class="footer-div"></div>
+        <img src="logo_foco.png" alt="Logo FOCO" onerror="this.style.display='none'">
+      </div>
+      <p class="footer-text">Juan Carlos Palacio Fernández — Presidente de la Asamblea Departamental de Antioquia · Vigencia 2026. Diputado por el Partido Liberal Colombiano. Fundador de la Fundación FOCO, Opción Comunitaria.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#quien">Perfil</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#votos">Elecciones</a>
+      <a href="#logros">Gestión</a>
+      <a href="#foco">FOCO</a>
+      <a href="#redes">Contacto</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Juan Carlos Palacio Fernández · Todos los derechos reservados</span>
+    <div class="footer-partido">
+      <div class="footer-partido-dot"></div>
+      <span class="footer-partido-text">Partido Liberal Colombiano</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// MENÚ MÓVIL
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// SCROLL REVEAL con delay escalonado
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 90);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// BARRAS DE VOTOS ANIMADAS
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.voto-bar').forEach((bar, i) => {
+        setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 200 + i * 120);
+      });
+      barObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+const votosSection = document.getElementById('votos');
+if (votosSection) barObserver.observe(votosSection);
+
+// NAV ACTIVO EN SCROLL
+const secciones = document.querySelectorAll('section[id], [id="hero"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  secciones.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--rojo-light)' : '';
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
